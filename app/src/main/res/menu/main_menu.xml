@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/action_add_category"
+        android:title="Ajouter Catégorie"
+        android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
+
+    <item
+        android:id="@+id/action_profile"
+        android:title="Profil"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_scan"
+        android:title="Scanner"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_deconnexion"
+        android:title="Se Deconnecter"
+        app:showAsAction="never" />
+</menu>
