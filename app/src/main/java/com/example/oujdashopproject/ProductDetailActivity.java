@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,8 @@ public class ProductDetailActivity extends AppCompatActivity {
         productPrice = findViewById(R.id.productPrice);
         productDescription = findViewById(R.id.productDescription);
         dataBaseHelper = DataBaseHelper.getInstance(this);
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         productId = getIntent().getIntExtra("PRODUCT_ID", -1);
 
         if (productId == -1) {
@@ -37,6 +40,7 @@ public class ProductDetailActivity extends AppCompatActivity {
 
         loadProductDetails();
     }
+
     private void loadProductDetails() {
         SQLiteDatabase db = dataBaseHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM Product WHERE id = ?", new String[]{String.valueOf(productId)});
@@ -54,5 +58,27 @@ public class ProductDetailActivity extends AppCompatActivity {
             Toast.makeText(this, "Erreur lors du chargement du produit", Toast.LENGTH_SHORT).show();
             finish();
         }
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu3, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        if (item.getItemId() == R.id.action_profile) {
+            Intent intent = new Intent(ProductDetailActivity.this, UserActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if (item.getItemId() == R.id.action_Home) {
+            Intent intent = new Intent(ProductDetailActivity.this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

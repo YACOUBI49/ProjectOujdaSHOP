@@ -6,7 +6,7 @@ public class User {
     private String prenom;
     private String email;
     private String password;
-    private String image; // Nouveau champ pour l'image de profil
+    private String image;
 
     public User() {
     }
@@ -17,7 +17,7 @@ public class User {
         this.prenom = prenom;
         this.email = email;
         this.password = password;
-        this.image = image; // Initialisation du champ image
+        this.image = image;
     }
 
     public int getId() {
